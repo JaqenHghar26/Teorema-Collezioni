@@ -3,26 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TEOREMA — Italian Luxury Furniture</title>
+  <title>TEOREMA COLLEZIONI — Italian Luxury Furniture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=Jost:wght@300;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── VARIABLES ─────────────────────────────────────── */
     :root {
-      --cream:       #F5F0E8;
-      --cream-deep:  #EDE6D8;
-      --dark:        #1A1612;
-      --mid:         #4A4540;
-      --muted:       #9A9088;
-      --accent:      #B8906A;
-      --accent-lt:   #D4B898;
-      --white:       #FDFAF5;
-      --border:      rgba(26,22,18,0.10);
+      --cream:       #c7bdb1;
+      --cream-deep:  #dbdbdb;
+      --dark:        #000000;
+      --mid:         #62544d;
+      --muted:       #8e837c;
+      --accent:      #b21e16;
+      --accent-lt:   #8a392f;
+      --white:       #fefefe;
+      --border:      rgba(0,0,0,0.10);
 
       --f-serif:     'Cormorant Garamond', Georgia, serif;
       --f-sans:      'Inter', system-ui, sans-serif;
+      --f-logo:      'Jost', 'Inter', system-ui, sans-serif;
 
       --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
       --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -95,21 +96,21 @@
       padding: 28px 48px;
       transition: transform 0.5s var(--ease-out), opacity 0.5s ease,
                   background 0.4s ease, border-color 0.4s ease;
-      background: rgba(245, 240, 232, 0.78);
+      background: rgba(199, 189, 177, 0.78);
       backdrop-filter: blur(22px);
       -webkit-backdrop-filter: blur(22px);
-      border-bottom: 1px solid rgba(26, 22, 18, 0.07);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     }
     /* nav always visible — auto-hide disabled */
     .nav.on-light {
       --nav-color: var(--dark);
-      background: rgba(245, 240, 232, 0.78);
-      border-bottom-color: rgba(26, 22, 18, 0.07);
+      background: rgba(199, 189, 177, 0.78);
+      border-bottom-color: rgba(0, 0, 0, 0.07);
     }
     .nav.on-dark {
       --nav-color: var(--white);
-      background: rgba(26, 22, 18, 0.72);
-      border-bottom-color: rgba(253, 250, 245, 0.07);
+      background: rgba(0, 0, 0, 0.72);
+      border-bottom-color: rgba(254, 254, 254, 0.07);
     }
     .nav { --nav-color: var(--dark); }
 
@@ -122,17 +123,18 @@
       transition: opacity 0.3s ease;
     }
     .nav-logo:hover { opacity: 0.7; }
-    .logo-mark svg { display: block; }
     .logo-word {
-      font-family: var(--f-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.3em;
+      font-family: var(--f-logo);
+      font-size: 12px;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--nav-color);
       transition: color 0.4s ease;
       line-height: 1;
+      white-space: nowrap;
     }
+    .lw-bold { font-weight: 600; }
+    .lw-light { font-weight: 300; margin-left: 0.4em; }
 
     /* Hamburger */
     .hamburger {
@@ -218,7 +220,7 @@
       font-family: var(--f-sans);
       font-size: 11px;
       letter-spacing: 0.2em;
-      color: rgba(253,250,245,0.35);
+      color: rgba(254,254,254,0.35);
       text-transform: uppercase;
     }
 
@@ -238,8 +240,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(184,144,106,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 10% 20%, rgba(184,144,106,0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(142,131,124,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 10% 20%, rgba(142,131,124,0.05) 0%, transparent 60%);
     }
     .hero-content {
       position: relative;
@@ -250,18 +252,10 @@
       gap: 0;
       text-align: center;
     }
-    .hero-icon {
-      margin-bottom: 28px;
-      opacity: 0;
-      transform: scale(0.85);
-      transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
-    }
-    .hero-icon.visible { opacity: 1; transform: scale(1); }
     .hero-wordmark {
-      font-family: var(--f-sans);
-      font-weight: 400;
-      font-size: clamp(22px, 4vw, 44px);
-      letter-spacing: 0.55em;
+      font-family: var(--f-logo);
+      font-size: clamp(20px, 3.4vw, 38px);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--dark);
       opacity: 0;
@@ -395,7 +389,7 @@
     }
     .woody-hero-image {
       /* Replace this div's background with your hero product shot */
-      background: linear-gradient(145deg, #D4B896 0%, #C4A070 35%, #A8844C 70%, #8C6A32 100%);
+      background: linear-gradient(145deg, #c7bdb1 0%, #c0bbb9 35%, #8e837c 70%, #62544d 100%);
       aspect-ratio: 4/5;
       border-radius: 2px;
       position: relative;
@@ -405,7 +399,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(26,22,18,0.15));
+      background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.15));
     }
     /* ↑ Replace .woody-hero-image div with:
        <img src="images/woody-1.jpg" alt="Woody Bookshelf" ...> */
@@ -490,14 +484,14 @@
     .gallery-item {
       position: relative;
       padding: 10px;
-      border: 1px solid rgba(184, 144, 106, 0.45);
+      border: 1px solid rgba(142, 131, 124, 0.35);
       background: var(--white);
       cursor: pointer;
       transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
     .gallery-item:hover {
-      border-color: rgba(184, 144, 106, 0.85);
-      box-shadow: 0 8px 32px rgba(184, 144, 106, 0.12);
+      border-color: rgba(178, 30, 22, 0.85);
+      box-shadow: 0 8px 32px rgba(178, 30, 22, 0.15);
     }
     .gallery-frame {
       overflow: hidden;
@@ -514,7 +508,7 @@
       position: absolute;
       bottom: 10px; left: 10px; right: 10px;
       padding: 20px 16px 16px;
-      background: linear-gradient(to top, rgba(26,22,18,0.55), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.55), transparent);
       color: var(--white);
       font-family: var(--f-serif);
       font-size: 13px;
@@ -582,7 +576,7 @@
     .atelier-visual-frame {
       width: 100%;
       height: 100%;
-      border: 1px solid rgba(184, 144, 106, 0.45);
+      border: 1px solid rgba(142, 131, 124, 0.35);
       padding: 10px;
       background: var(--dark);
       box-sizing: border-box;
@@ -590,7 +584,7 @@
       transition: border-color 0.4s ease;
     }
     .atelier-visual-frame:hover {
-      border-color: rgba(184, 144, 106, 0.85);
+      border-color: rgba(178, 30, 22, 0.85);
     }
     .atelier-visual-frame img {
       width: 100%;
@@ -607,7 +601,7 @@
     }
     .atelier-content .section-label { color: var(--accent); }
     .atelier-content .section-title { color: var(--white); margin-bottom: 36px; }
-    .atelier-content .section-body { color: rgba(253,250,245,0.60); max-width: 460px; }
+    .atelier-content .section-body { color: rgba(254,254,254,0.60); max-width: 460px; }
 
     .values-grid {
       display: grid;
@@ -632,7 +626,7 @@
     .value-desc {
       font-size: 13px;
       font-weight: 300;
-      color: rgba(253,250,245,0.45);
+      color: rgba(254,254,254,0.45);
       line-height: 1.7;
     }
 
@@ -650,7 +644,7 @@
       font-family: var(--f-serif);
       font-size: clamp(160px, 20vw, 320px);
       font-weight: 300;
-      color: rgba(184, 144, 106, 0.08);
+      color: rgba(142, 131, 124, 0.08);
       top: -20px;
       left: 50%;
       transform: translateX(-50%);
@@ -787,13 +781,13 @@
       font-size: 9px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: rgba(253,250,245,0.30);
+      color: rgba(254,254,254,0.30);
       margin-bottom: 6px;
     }
     .contact-list-val {
       font-family: var(--f-serif);
       font-size: 17px;
-      color: rgba(253,250,245,0.75);
+      color: rgba(254,254,254,0.75);
     }
     .contact-list-val a { color: inherit; text-decoration: none; }
     .contact-list-val a:hover { color: var(--accent); }
@@ -803,7 +797,7 @@
     .form-group {
       position: relative;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(253,250,245,0.10);
+      border-bottom: 1px solid rgba(254,254,254,0.10);
       transition: border-color 0.3s ease;
     }
     .form-group:focus-within { border-color: var(--accent); }
@@ -812,7 +806,7 @@
       font-size: 9px;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(253,250,245,0.35);
+      color: rgba(254,254,254,0.35);
       margin-bottom: 8px;
       transition: color 0.3s ease;
     }
@@ -831,7 +825,7 @@
     }
     .form-textarea { min-height: 60px; }
     .form-input::placeholder,
-    .form-textarea::placeholder { color: rgba(253,250,245,0.20); }
+    .form-textarea::placeholder { color: rgba(254,254,254,0.20); }
 
     .form-submit {
       margin-top: 24px;
@@ -863,7 +857,7 @@
     /* ─── FOOTER ─────────────────────────────────────────── */
     footer {
       background: var(--dark);
-      border-top: 1px solid rgba(253,250,245,0.06);
+      border-top: 1px solid rgba(254,254,254,0.06);
       padding: 24px 80px;
       display: flex;
       align-items: center;
@@ -875,15 +869,15 @@
       gap: 12px;
     }
     .footer-wordmark {
-      font-family: var(--f-sans);
+      font-family: var(--f-logo);
       font-size: 11px;
-      letter-spacing: 0.4em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(253,250,245,0.50);
+      color: rgba(254,254,254,0.50);
     }
     .footer-copy {
       font-size: 11px;
-      color: rgba(253,250,245,0.25);
+      color: rgba(254,254,254,0.25);
       letter-spacing: 0.05em;
     }
     .footer-links {
@@ -894,7 +888,7 @@
       font-size: 10px;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(253,250,245,0.35);
+      color: rgba(254,254,254,0.35);
       transition: color 0.3s ease;
     }
     .footer-link:hover { color: var(--accent); }
@@ -969,16 +963,7 @@
     </div>
 
     <a class="nav-logo" href="#home">
-      <span class="logo-mark">
-        <!-- TEOREMA icon mark: 4 circles (gate shape) TL↔TR top, TL↕BL left, TR↕BR right, BL/BR unconnected -->
-        <svg width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="14" r="13" fill="currentColor" fill-opacity="0.65"/>
-          <circle cx="46" cy="30" r="13" fill="currentColor" fill-opacity="0.65"/>
-          <circle cx="30" cy="46" r="13" fill="currentColor" fill-opacity="0.65"/>
-          <circle cx="14" cy="30" r="13" fill="currentColor" fill-opacity="0.65"/>
-        </svg>
-      </span>
-      <span class="logo-word">TEOREMA</span>
+      <span class="logo-word"><span class="lw-bold">TEOREMA</span><span class="lw-light">COLLEZIONI</span></span>
     </a>
 
     <div class="nav-right">
@@ -1011,15 +996,7 @@
   <section id="home">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <div class="hero-icon" id="heroIcon">
-        <svg width="72" height="72" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="30" cy="14" r="13" fill="#B8906A" fill-opacity="0.65"/>
-          <circle cx="46" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/>
-          <circle cx="30" cy="46" r="13" fill="#B8906A" fill-opacity="0.65"/>
-          <circle cx="14" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/>
-        </svg>
-      </div>
-      <h1 class="hero-wordmark" id="heroWordmark">TEOREMA</h1>
+      <h1 class="hero-wordmark" id="heroWordmark"><span class="lw-bold">TEOREMA</span><span class="lw-light">COLLEZIONI</span></h1>
       <div class="hero-rule" id="heroRule"></div>
       <p class="hero-tagline" id="heroTagline" data-i18n="hero_tagline">Eccellenza su misura.</p>
     </div>
@@ -1030,7 +1007,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1108,7 +1085,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1169,7 +1146,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1231,7 +1208,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#B8906A" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#B8906A" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1243,7 +1220,7 @@
       <div>
         <p class="section-label reveal" data-i18n="contatti_label">Parliamo</p>
         <h2 class="section-title reveal reveal-delay-1" data-i18n="contatti_title">Contatti</h2>
-        <p class="section-body reveal reveal-delay-2" style="color:rgba(253,250,245,0.55); margin-bottom: 0;" data-i18n="contatti_body">
+        <p class="section-body reveal reveal-delay-2" style="color:rgba(254,254,254,0.55); margin-bottom: 0;" data-i18n="contatti_body">
           Siamo lieti di discutere ogni progetto su misura, rispondere alle vostre domande e accompagnarvi nella scelta del pezzo più adatto al vostro spazio.
         </p>
         <form class="contact-form reveal reveal-delay-3" onsubmit="return false;">
@@ -1299,13 +1276,7 @@
   <!-- ─────────────────────────────────────────────── -->
   <footer>
     <div class="footer-logo">
-      <svg width="20" height="20" viewBox="0 0 60 60" fill="none">
-        <circle cx="30" cy="14" r="13" fill="rgba(253,250,245,0.55)"/>
-        <circle cx="46" cy="30" r="13" fill="rgba(253,250,245,0.55)"/>
-        <circle cx="30" cy="46" r="13" fill="rgba(253,250,245,0.55)"/>
-        <circle cx="14" cy="30" r="13" fill="rgba(253,250,245,0.55)"/>
-      </svg>
-      <span class="footer-wordmark">TEOREMA</span>
+      <span class="footer-wordmark"><span class="lw-bold">TEOREMA</span><span class="lw-light">COLLEZIONI</span></span>
     </div>
     <span class="footer-copy" data-i18n="footer_copy">© 2025 Teorema. Tutti i diritti riservati.</span>
     <div class="footer-links">
@@ -1321,8 +1292,7 @@
   <script>
     /* ── HERO ENTRANCE ────────────────────────────── */
     window.addEventListener('load', () => {
-      setTimeout(() => document.getElementById('heroIcon').classList.add('visible'), 200);
-      setTimeout(() => document.getElementById('heroWordmark').classList.add('visible'), 500);
+      setTimeout(() => document.getElementById('heroWordmark').classList.add('visible'), 300);
       setTimeout(() => document.getElementById('heroRule').classList.add('visible'), 800);
       setTimeout(() => document.getElementById('heroTagline').classList.add('visible'), 1000);
     });
@@ -1372,10 +1342,6 @@
       });
       nav.classList.toggle('on-dark', onDark);
       nav.classList.toggle('on-light', !onDark);
-      // Update SVG color
-      nav.querySelectorAll('.logo-mark svg circle, .logo-mark svg ellipse').forEach(c => {
-        c.setAttribute('fill', onDark ? '#FDFAF5' : '#1A1612');
-      });
     }, { passive: true });
 
     /* ── HAMBURGER / MENU ─────────────────────────── */
