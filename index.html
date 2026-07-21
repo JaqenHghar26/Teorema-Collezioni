@@ -6,7 +6,7 @@
   <title>TEOREMA COLLEZIONI — Italian Luxury Furniture</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── VARIABLES ─────────────────────────────────────── */
@@ -16,12 +16,10 @@
       --dark:        #000000;
       --mid:         #62544d;
       --muted:       #8e837c;
-      --accent:      #b21e16;
-      --accent-lt:   #8a392f;
       --white:       #fefefe;
       --border:      rgba(0,0,0,0.10);
 
-      --f-serif:     'Cormorant Garamond', Georgia, serif;
+      --f-serif:     'Jost', 'Inter', system-ui, sans-serif;
       --f-sans:      'Inter', system-ui, sans-serif;
 
       --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
@@ -204,7 +202,7 @@
     .menu-overlay.open .menu-link:nth-child(3) { transition-delay: 0.15s; }
     .menu-overlay.open .menu-link:nth-child(4) { transition-delay: 0.20s; }
     .menu-overlay.open .menu-link:nth-child(5) { transition-delay: 0.25s; }
-    .menu-link:hover { color: var(--accent); }
+    .menu-link:hover { color: var(--white); }
 
     .menu-footer {
       position: absolute;
@@ -262,7 +260,7 @@
     .hero-rule {
       width: 1px;
       height: 48px;
-      background: var(--accent);
+      background: var(--dark);
       margin: 32px auto 28px;
       opacity: 0;
       transform: scaleY(0);
@@ -304,7 +302,7 @@
     .scroll-line {
       width: 1px;
       height: 40px;
-      background: var(--accent);
+      background: var(--dark);
       animation: scrollPulse 2s ease-in-out 2s infinite;
     }
     @keyframes fadeInUp {
@@ -464,7 +462,7 @@
       display: block;
       width: 36px;
       height: 1px;
-      background: var(--accent);
+      background: var(--dark);
       transition: width 0.3s var(--ease-out);
     }
     .cta-link:hover .cta-link-line { width: 56px; }
@@ -486,8 +484,8 @@
       transition: border-color 0.4s ease, box-shadow 0.4s ease;
     }
     .gallery-item:hover {
-      border-color: rgba(178, 30, 22, 0.85);
-      box-shadow: 0 8px 32px rgba(178, 30, 22, 0.15);
+      border-color: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
     }
     .gallery-frame {
       overflow: hidden;
@@ -530,7 +528,7 @@
       font-family: var(--f-serif);
       font-size: 120px;
       line-height: 0.7;
-      color: var(--accent-lt);
+      color: var(--dark);
       font-weight: 300;
     }
     .quote-text {
@@ -580,7 +578,7 @@
       transition: border-color 0.4s ease;
     }
     .atelier-visual-frame:hover {
-      border-color: rgba(178, 30, 22, 0.85);
+      border-color: rgba(254, 254, 254, 0.85);
     }
     .atelier-visual-frame img {
       width: 100%;
@@ -595,7 +593,7 @@
       justify-content: center;
       padding: 100px 80px 100px 60px;
     }
-    .atelier-content .section-label { color: var(--accent); }
+    .atelier-content .section-label { color: var(--white); }
     .atelier-content .section-title { color: var(--white); margin-bottom: 36px; }
     .atelier-content .section-body { color: rgba(254,254,254,0.60); max-width: 460px; }
 
@@ -609,7 +607,7 @@
     .value-number {
       font-family: var(--f-serif);
       font-size: 13px;
-      color: var(--accent);
+      color: var(--white);
       margin-bottom: 8px;
     }
     .value-title {
@@ -665,7 +663,7 @@
       font-size: 10px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--dark);
     }
 
     /* ─── HISTORY SECTION ────────────────────────────────── */
@@ -717,7 +715,7 @@
       font-family: var(--f-serif);
       font-size: 13px;
       font-weight: 400;
-      color: var(--accent);
+      color: var(--dark);
       padding-top: 4px;
       text-align: right;
       padding-right: 40px;
@@ -730,7 +728,7 @@
       top: 8px;
       width: 9px; height: 9px;
       border-radius: 50%;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--dark);
       background: var(--cream);
     }
     .timeline-content {}
@@ -763,7 +761,7 @@
       column-gap: 120px;
       align-items: start;
     }
-    #contatti .section-label { color: var(--accent); }
+    #contatti .section-label { color: var(--white); }
     #contatti .section-title { color: var(--white); margin-bottom: 20px; }
 
     /* Contact list (right column) */
@@ -786,7 +784,7 @@
       color: rgba(254,254,254,0.75);
     }
     .contact-list-val a { color: inherit; text-decoration: none; }
-    .contact-list-val a:hover { color: var(--accent); }
+    .contact-list-val a:hover { color: var(--white); }
 
     /* Form */
     .contact-form { display: flex; flex-direction: column; gap: 0; margin-top: 28px; }
@@ -796,7 +794,7 @@
       border-bottom: 1px solid rgba(254,254,254,0.10);
       transition: border-color 0.3s ease;
     }
-    .form-group:focus-within { border-color: var(--accent); }
+    .form-group:focus-within { border-color: var(--white); }
     .form-label {
       display: block;
       font-size: 9px;
@@ -806,7 +804,7 @@
       margin-bottom: 8px;
       transition: color 0.3s ease;
     }
-    .form-group:focus-within .form-label { color: var(--accent); }
+    .form-group:focus-within .form-label { color: var(--white); }
     .form-input,
     .form-textarea {
       width: 100%;
@@ -845,7 +843,7 @@
       display: block;
       width: 48px;
       height: 1px;
-      background: var(--accent);
+      background: var(--white);
       transition: width 0.3s var(--ease-out);
     }
     .form-submit:hover .submit-line { width: 72px; }
@@ -885,7 +883,7 @@
       color: rgba(254,254,254,0.35);
       transition: color 0.3s ease;
     }
-    .footer-link:hover { color: var(--accent); }
+    .footer-link:hover { color: var(--white); }
 
     /* ─── SECTION DIVIDER ──────────────────────────────── */
     .section-divider {
@@ -902,7 +900,7 @@
       display: block;
       width: 48px;
       height: 1px;
-      background: var(--accent);
+      background: var(--dark);
       opacity: 0.45;
     }
     .section-divider svg {
@@ -1041,7 +1039,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1119,7 +1117,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1180,7 +1178,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1242,7 +1240,7 @@
   </section>
 
   <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#b21e16" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#b21e16" fill-opacity="0.65"/></svg>
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
