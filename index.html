@@ -104,6 +104,11 @@
       background: rgba(199, 189, 177, 0.78);
       border-bottom-color: rgba(0, 0, 0, 0.07);
     }
+    .nav.on-white {
+      --nav-color: var(--dark);
+      background: rgba(254, 254, 254, 0.78);
+      border-bottom-color: rgba(0, 0, 0, 0.07);
+    }
     .nav.on-dark {
       --nav-color: var(--white);
       background: rgba(0, 0, 0, 0.72);
@@ -1380,20 +1385,28 @@
       }
       lastScrollY = y;
 
-      // Color adapt for dark sections
-      const darkSections = ['atelier', 'contatti'];
+      // Color adapt to whatever background sits behind the nav.
+      // Default is 'light' (the beige/cream base — hero, dividers, history).
+      // Explicit zones override that for the white and dark sections,
+      // including the light manifesto panel nested inside the dark Atelier section.
       const midPoint = y + 80;
-      let onDark = false;
-      darkSections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          const bottom = top + el.offsetHeight;
-          if (midPoint >= top && midPoint < bottom) onDark = true;
-        }
-      });
-      nav.classList.toggle('on-dark', onDark);
-      nav.classList.toggle('on-light', !onDark);
+      const toneZones = [
+        { el: document.getElementById('woody'),                  tone: 'white' },
+        { el: document.querySelector('#atelier .atelier-inner'), tone: 'dark'  },
+        { el: document.querySelector('.atelier-manifesto'),      tone: 'light' },
+        { el: document.getElementById('contatti'),                tone: 'dark'  },
+        { el: document.querySelector('footer'),                   tone: 'dark'  },
+      ];
+      let tone = 'light';
+      for (const zone of toneZones) {
+        if (!zone.el) continue;
+        const top = zone.el.getBoundingClientRect().top + window.scrollY;
+        const bottom = top + zone.el.offsetHeight;
+        if (midPoint >= top && midPoint < bottom) { tone = zone.tone; break; }
+      }
+      nav.classList.toggle('on-dark', tone === 'dark');
+      nav.classList.toggle('on-white', tone === 'white');
+      nav.classList.toggle('on-light', tone === 'light');
     }, { passive: true });
 
     /* ── HAMBURGER / MENU ─────────────────────────── */
