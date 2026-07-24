@@ -241,9 +241,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 50% 110%, rgba(142,131,124,0.10) 0%, transparent 70%),
-        radial-gradient(ellipse 60% 40% at 10% 20%, rgba(142,131,124,0.05) 0%, transparent 60%);
+      background: var(--cream);
     }
     .hero-content {
       position: relative;
@@ -631,7 +629,7 @@
 
     /* Atelier closing citation */
     .atelier-manifesto {
-      background: var(--cream);
+      background: var(--dark);
       padding: 100px 80px;
       text-align: center;
       position: relative;
@@ -643,7 +641,7 @@
       font-family: var(--f-serif);
       font-size: clamp(160px, 20vw, 320px);
       font-weight: 300;
-      color: rgba(142, 131, 124, 0.08);
+      color: rgba(254, 254, 254, 0.08);
       top: -20px;
       left: 50%;
       transform: translateX(-50%);
@@ -660,7 +658,7 @@
       line-height: 1.6;
       max-width: 760px;
       margin: 0 auto;
-      color: var(--dark);
+      color: var(--white);
     }
     .manifesto-attribution {
       margin-top: 28px;
@@ -668,7 +666,7 @@
       font-size: 10px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--dark);
+      color: var(--white);
     }
 
     /* ─── HISTORY SECTION ────────────────────────────────── */
@@ -897,8 +895,11 @@
       justify-content: center;
       gap: 18px;
       padding: 64px 0;
-      background: var(--cream);
     }
+    /* Divider band always matches the section that precedes it */
+    .section-divider.tone-cream { background: var(--cream); }
+    .section-divider.tone-white { background: var(--white); }
+    .section-divider.tone-dark { background: var(--dark); }
     .section-divider::before,
     .section-divider::after {
       content: '';
@@ -907,6 +908,10 @@
       height: 1px;
       background: var(--dark);
       opacity: 0.45;
+    }
+    .section-divider.tone-dark::before,
+    .section-divider.tone-dark::after {
+      background: var(--white);
     }
     .section-divider svg {
       opacity: 0.55;
@@ -998,7 +1003,7 @@
       <a class="menu-link" data-target="#home">Homepage</a>
       <a class="menu-link" data-target="#woody">Woody</a>
       <a class="menu-link" data-target="#atelier">Teorema Atelier</a>
-      <a class="menu-link" data-target="#history" data-i18n="nav_history">History</a>
+      <a class="menu-link" data-target="#history" data-i18n="nav_history">La nostra storia</a>
       <a class="menu-link" data-target="#contatti" data-i18n="nav_contatti">Contatti</a>
     </nav>
     <div class="menu-footer">
@@ -1043,7 +1048,7 @@
     </div>
   </section>
 
-  <div class="section-divider">
+  <div class="section-divider tone-cream">
     <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
@@ -1121,7 +1126,7 @@
     </div>
   </section>
 
-  <div class="section-divider">
+  <div class="section-divider tone-white">
     <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
@@ -1182,8 +1187,8 @@
     </div>
   </section>
 
-  <div class="section-divider">
-    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
+  <div class="section-divider tone-dark">
+    <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#fefefe" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#fefefe" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#fefefe" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#fefefe" fill-opacity="0.65"/></svg>
   </div>
 
   <!-- ─────────────────────────────────────────────── -->
@@ -1244,7 +1249,7 @@
     </div>
   </section>
 
-  <div class="section-divider">
+  <div class="section-divider tone-cream">
     <svg width="12" height="12" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="14" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="46" cy="30" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="30" cy="46" r="13" fill="#000000" fill-opacity="0.65"/><circle cx="14" cy="30" r="13" fill="#000000" fill-opacity="0.65"/></svg>
   </div>
 
@@ -1387,15 +1392,13 @@
 
       // Color adapt to whatever background sits behind the nav.
       // Default is 'light' (the beige/cream base — hero, dividers, history).
-      // Explicit zones override that for the white and dark sections,
-      // including the light manifesto panel nested inside the dark Atelier section.
+      // Explicit zones override that for the white and dark sections.
       const midPoint = y + 80;
       const toneZones = [
-        { el: document.getElementById('woody'),                  tone: 'white' },
-        { el: document.querySelector('#atelier .atelier-inner'), tone: 'dark'  },
-        { el: document.querySelector('.atelier-manifesto'),      tone: 'light' },
-        { el: document.getElementById('contatti'),                tone: 'dark'  },
-        { el: document.querySelector('footer'),                   tone: 'dark'  },
+        { el: document.getElementById('woody'),    tone: 'white' },
+        { el: document.getElementById('atelier'),  tone: 'dark'  },
+        { el: document.getElementById('contatti'), tone: 'dark'  },
+        { el: document.querySelector('footer'),    tone: 'dark'  },
       ];
       let tone = 'light';
       for (const zone of toneZones) {
@@ -1477,7 +1480,7 @@
     /* ── LANGUAGE SWITCHER ────────────────────────────── */
     const translations = {
       it: {
-        nav_history: 'History', nav_contatti: 'Contatti',
+        nav_history: 'La nostra storia', nav_contatti: 'Contatti',
         menu_made: 'Made in Italy',
         hero_tagline: 'Eccellenza su misura.', hero_scroll: 'Scopri',
         woody_label: 'La nostra creazione',
